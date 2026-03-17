@@ -391,30 +391,37 @@ section { padding: 7rem 0; }
 
 .timeline {
   position: relative;
-  padding-left: 4rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 199px;
-  top: 0; bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--accent), var(--primary));
 }
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 2rem;
+  grid-template-columns: 100px 40px 1fr;
+  gap: 0;
   margin-bottom: 2.5rem;
   position: relative;
 }
 
+/* 수직 라인: 각 아이템의 가운데 컬럼(dot 영역)에 그림 */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 119px; /* 100px year + 20px (center of 40px dot col) - 1px */
+  top: 0;
+  bottom: -2.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--primary));
+  z-index: 0;
+}
+
+.timeline-item:last-child::after {
+  bottom: 0;
+}
+
+/* dot: 가운데 컬럼 중앙 */
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 129px;
+  left: 113px; /* 100px year + 20px center - 7px half-dot = 113px */
   top: 8px;
   width: 14px; height: 14px;
   border-radius: 50%;
@@ -442,6 +449,7 @@ section { padding: 7rem 0; }
 .timeline-item.current .timeline-year { color: var(--accent); }
 
 .timeline-content {
+  grid-column: 3; /* 3컬럼 레이아웃에서 명시적으로 3번째 컬럼 */
   background: var(--gray-100);
   border-radius: var(--radius);
   padding: 1.2rem 1.5rem;
@@ -847,10 +855,9 @@ section { padding: 7rem 0; }
 
   .about-mission { grid-template-columns: 1fr; gap: 2rem; }
   .about-directions { grid-template-columns: 1fr; }
-  .timeline { padding-left: 1rem; }
-  .timeline::before { left: 83px; }
-  .timeline-item { grid-template-columns: 60px 1fr; gap: 1rem; }
-  .timeline-item::before { left: 61px; }
+  .timeline-item { grid-template-columns: 55px 30px 1fr; }
+  .timeline-item::before { left: 62px; } /* 55 + 15 - 7 = 63, center of 30px col */
+  .timeline-item::after { left: 69px; } /* 55 + 15 - 1 = 69, center of 30px col */
   .timeline-year { font-size: 1rem; padding-right: 0.5rem; }
   .team-departments { grid-template-columns: 1fr; }
   .service-grid { grid-template-columns: 1fr; }
