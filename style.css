@@ -397,7 +397,7 @@ section { padding: 7rem 0; }
 .timeline::before {
   content: '';
   position: absolute;
-  left: 80px;
+  left: 199px;
   top: 0; bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom, var(--accent), var(--primary));
@@ -414,7 +414,7 @@ section { padding: 7rem 0; }
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 74px;
+  left: 129px;
   top: 8px;
   width: 14px; height: 14px;
   border-radius: 50%;
@@ -848,9 +848,9 @@ section { padding: 7rem 0; }
   .about-mission { grid-template-columns: 1fr; gap: 2rem; }
   .about-directions { grid-template-columns: 1fr; }
   .timeline { padding-left: 1rem; }
-  .timeline::before { left: 20px; }
+  .timeline::before { left: 83px; }
   .timeline-item { grid-template-columns: 60px 1fr; gap: 1rem; }
-  .timeline-item::before { left: 14px; }
+  .timeline-item::before { left: 61px; }
   .timeline-year { font-size: 1rem; padding-right: 0.5rem; }
   .team-departments { grid-template-columns: 1fr; }
   .service-grid { grid-template-columns: 1fr; }
